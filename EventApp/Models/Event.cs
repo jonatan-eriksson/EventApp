@@ -5,7 +5,7 @@ namespace EventApp.Models
 {
     public class Event
     {
-        public int EventId { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Place { get; set; }
