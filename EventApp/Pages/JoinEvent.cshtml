@@ -2,7 +2,6 @@
 @model JoinEventModel
 
 @{
-    @* Layout = null; *@
 }
 
 
@@ -37,9 +36,20 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Event.Id">Join this event</a> |
-    <a asp-page="./Events">Back to List</a>
-    <form action="post">
-        <input type="submit" value="">
-    </form>
+    @if (Model.HasJoined == false)
+    {
+        <form method="post">
+            <input class="btn btn-success" type="submit" value="Join event">
+        </form>
+        <a class="btn btn-primary" asp-page="./Events">Back to events</a>
+    }
+    else
+    {
+        <h2>You have joined @Model.Event.Title event! See you there!</h2>
+        <a class="btn btn-primary" asp-page="./Events">View more events</a>
+        <a class="btn btn-secondary" asp-page="./MyEvents">View your events</a>
+    }
 </div>
+@if (Request.Method == "post")
+{
+}
