@@ -1,0 +1,45 @@
+@page
+@model JoinEventModel
+
+@{
+    @* Layout = null; *@
+}
+
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Title</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.Title)
+        </dd>
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.Description)
+        </dd>
+        <dt class="col-sm-2">Place</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.Place)
+        </dd>
+        <dt class="col-sm-2">Address</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.Address)
+        </dd>
+        <dt class="col-sm-2">Date</dt>
+        <dd class="col-sm-10">
+            @Model.Event.Date.ToString("yyyy/MM/dd")
+        </dd>
+        <dt class="col-sm-2">Spots</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.SpotsAvailable)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Event.Id">Join this event</a> |
+    <a asp-page="./Events">Back to List</a>
+    <form action="post">
+        <input type="submit" value="">
+    </form>
+</div>
