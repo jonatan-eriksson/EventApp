@@ -12,9 +12,9 @@ namespace EventApp.Pages
 {
     public class MyEventsModel : PageModel
     {
-        private readonly EventApp.Data.EventContext _context;
+        private readonly EventContext _context;
 
-        public MyEventsModel(EventApp.Data.EventContext context)
+        public MyEventsModel(EventContext context)
         {
             _context = context;
         }
@@ -23,10 +23,12 @@ namespace EventApp.Pages
 
         public async Task OnGetAsync()
         {
-            Event = new List<Event>();
-            var user = await _context.Attendees.FirstOrDefaultAsync(a => a.Id == 1);
-            if (user.Events != null)
-                Event.AddRange(user.Events);
+            var userId = 1;
+            Event = await _context.Events
+                .Include(e => e.Organizer)
+                .Where(
+                    e => e.Attendees.Any(a => a.Id == userId)
+                ).ToListAsync();
         }
     }
 }

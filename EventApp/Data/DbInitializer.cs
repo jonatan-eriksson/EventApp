@@ -30,7 +30,7 @@ namespace EventApp.Data
                 PhoneNumber = "0001"
             };
 
-            context.Attendees.AddRange(attendees);
+            context.Attendees.Add(attendees);
             context.SaveChanges();
 
             var events = new Event[]

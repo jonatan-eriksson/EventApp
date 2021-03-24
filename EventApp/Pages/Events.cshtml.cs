@@ -12,9 +12,9 @@ namespace EventApp.Pages
 {
     public class EventsModel : PageModel
     {
-        private readonly EventApp.Data.EventContext _context;
+        private readonly EventContext _context;
 
-        public EventsModel(EventApp.Data.EventContext context)
+        public EventsModel(EventContext context)
         {
             _context = context;
         }
@@ -23,8 +23,7 @@ namespace EventApp.Pages
 
         public async Task OnGetAsync()
         {
-            Event = await _context.Events
-                .Include(e => e.Organizer).ToListAsync();
+            Event = await _context.Events.Include(e => e.Organizer).ToListAsync();
         }
     }
 }
