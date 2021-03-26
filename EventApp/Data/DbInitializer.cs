@@ -35,9 +35,9 @@ namespace EventApp.Data
 
             var events = new Event[]
             {
-                new Event{ Title="Event 1", Description="test", Place="Arena", Address="Abc 123", Date=DateTime.Parse("2021-05-01"), SpotsAvailable=10, Organizer=organizer},
-                new Event{ Title="Event 2", Description="test", Place="Club", Address="Abc 123", Date=DateTime.Parse("2021-06-01"), SpotsAvailable=20, Organizer=organizer},
-                new Event{ Title="Event 3", Description="test", Place="Arena", Address="Abc 123", Date=DateTime.Parse("2021-07-01"), SpotsAvailable=30, Organizer=organizer}
+                new Event{ Title="Event 1", Description="Event 1 Desc", Place="Arena", Address="Abc 123", Date=DateTime.Parse("2021-05-01"), SpotsAvailable=10, Organizer=organizer},
+                new Event{ Title="Event 2", Description="Event 2 Desc", Place="Club", Address="Cba 123", Date=DateTime.Parse("2021-06-01"), SpotsAvailable=20, Organizer=organizer},
+                new Event{ Title="Event 3", Description="Event 3 Desc", Place="Arena", Address="Abc 456", Date=DateTime.Parse("2021-07-01"), SpotsAvailable=30, Organizer=organizer}
             };
             context.Events.AddRange(events);
             context.SaveChanges();
